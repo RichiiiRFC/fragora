@@ -22,8 +22,10 @@ return new class extends Migration
             $table->string('usuario_cod_postal', 20);
             $table->string('usuario_pais', 50);
             $table->decimal('total_precio', 10, 2);
-            $table->string('metodo_pago', 50);
-            $table->string('metodo_envio', 50);
+            $table->unsignedInteger('metodo_pago_id');
+            $table->foreign('metodo_pago_id')->references('id')->on('metodos_pago')->onDelete('restrict');
+            $table->unsignedInteger('metodo_envio_id');
+            $table->foreign('metodo_envio_id')->references('id')->on('metodos_envio')->onDelete('restrict');
             $table->string('estado', 50);
             $table->timestamps();
         });

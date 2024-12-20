@@ -21,231 +21,333 @@
 
 
 
- body {
-      min-height: 100vh;
-      font-family:Arial, Helvetica, sans-serif;
-      display: flex;
-      flex-direction: column;
-    }
+  body {
+        min-height: 100vh;
+        font-family:Arial, Helvetica, sans-serif;
+        display: flex;
+        flex-direction: column;
+  }
 
- footer {
-  margin-top: auto;
- }
+      //ADMIN
 
-
-
-    //ADMIN
-
-    .titulo-admin{
-      font-size: x-large;
-    }
-
-    .sidebar-admin {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 250px;
-      background-color: #343a40;
-      padding-top: 65px;
-      transition: all 0.3s ease;
-      font-size: 17px;
-      
-    }
-
-    .sidebar-admin ul.navbar-nav li {
-      padding: 10px 15px;
-    }
-    
-    .sidebar-admin ul.navbar-nav li a {
-      color: #fff;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-    .sidebar-admin ul.navbar-nav li a:hover {
-      color: #ffc107;
-      
-    }
-    .content-admin {
-      margin-left: 250px;
-      margin-top: 50px;
-      padding: 20px;
-    }
-
-    
-.sidebar-admin .submenu {
-  display: none; 
-}
-
-.sidebar-admin .nav-item.active .submenu {
-  display: block; 
-}
-
-.sidebar-admin .submenu li {
-  list-style: none;
-  padding: 0;
-  font-size: 15px;
-  
-}
-
-//
-
-.content-cliente{
-  margin-top: 100px;
-  margin-left: 250px;
-  margin-right: 250px;
-  min-height: 70%;
-    }
-
-
-
-.ficha-producto {
+  .titulo-admin{
+    font-size: x-large;
+  }
+  .content-admin {
+    margin-left: 250px;
+    margin-right: 50px;
+    margin-top: 50px;
     padding: 20px;
-}
+  }
+  .sidebar-admin {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    background-color: #343a40;
+    padding-top: 65px;
+    transition: all 0.3s ease;
+    font-size: 17px;
+    
+  }
 
-.ficha-producto img {
-    border-radius: 5px;
-    border: 2px solid #ddd;
-}
+  .sidebar-admin ul.navbar-nav li {
+    padding: 10px 15px;
+  }
 
-
-.ficha-producto p{
-  font-size: 20px;
-}
-
-
-
-.ficha-producto .descripcion{
-
-  margin-top: 25px;
-}
-
-.ficha-producto .descripcion p{
-  font-size: 18px;
- color: #656c72;
-}
-
-
-.cliente-perfil{
-
-  margin-top: 30px;
-}
-  
-   
-
-.detalles-compra td{
-font-size: 13px;
-
-}
-
-
-.login-admin {
+  .sidebar-admin ul.navbar-nav li a {
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .sidebar-admin ul.navbar-nav li a:hover {
+    color: #ffc107;
+    
+  }
+  .sidebar-admin .submenu {
+    display: none; 
+    padding-left: 10px;
+    
+  }
+  .sidebar-admin .submenu li{
+    list-style: none;
+    padding: 0;
+    font-size: 13px;
+    
+  }
+  .login-admin {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     background-color: #a4a2a2;
-}
-
-
-.login-admin .login {
+  }
+  .login-admin .login {
     background-color: #ddd;
     border-radius: 5px;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 
     
-}
+  }
+
+  //CLIENTE
+
+  .content-cliente{
+    margin-top: 100px;
+    margin-bottom: 30px;
+    max-width: 1400px;
+    min-height: 70%;
+      }
+
+      
+
+    //CLIENTE-INICIO
+
+    .card-productos {
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .card-productos p{
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+    
+    
+    .card-productos:hover {
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      cursor: pointer;
+    }
 
 
-.register-cliente{
+    
+    .verMas {
+    
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+    
+    .verMas:hover {
+      background-color: rgba(0, 0, 0, 0.1); 
+    }
 
+
+  //CLIENTE-FICHA
+  .ficha-producto {
+      padding: 20px;
+  }
+
+  .ficha-producto img {
+      border-radius: 5px;
+      border: 2px solid #ddd;
+  }
+
+  .ficha-producto p{
+    font-size: 20px;
+  }
+
+  .ficha-producto .descripcion{
+
+    margin-top: 25px;
+  }
+  .ficha-producto .descripcion p{
+    font-size: 18px;
+    color: #5a6066;
+  }
+
+
+  //CLIENTE-PERFIL
+  .menu-perfil{
+    font-size:22px
+  }
+
+  //CLIENTE-CHECKOUT
+  .proceso-compra .detalles-compra td{
+  font-size: 13px;
+
+  }
+  .proceso-compra .descripcion{
+    color: #5a6066;
+  }
+
+
+  //CLIENTE-LOGIN
+  .register-cliente{
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 30px;
+      
+  }
+  .register-cliente .login {
+      
+      border-radius: 5px;
+      padding: 20px;
+      background-color:whitesmoke;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      
+  }
+  .font-grande{
+    font-size: 50px;
+    text-align: center;
+  }
+
+  //HEADER
+
+  header {
+    background-color: #212529;
+    color: white; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  }
+
+  header .titulo-cliente {
+    font-size: 22px; 
+    font-weight: bold; 
+    color: #fff;
+    
+  }
+
+  header .navbar-brand:hover {
+    color: #f8f9fa; 
+  }
+
+  header a {
+    color: #fff; 
+    text-decoration: none; 
+    
+  }
+
+  header i {
+
+    font-size: 18px;
+  }
+
+  header .dropdown-menu {
+    background-color: #343a40; 
+    border: none; 
+  }
+
+  header .dropdown-item {
+    color: #fff; 
+  }
+
+  header .dropdown-item:hover {
+    background-color: #495057;
+    color: #fff;
+  }
+
+  header button.nav-link.dropdown-toggle {
+    color: #fff; 
+    background: none; 
+    border: none; 
+  }
+
+  header button.nav-link.dropdown-toggle:focus {
+    box-shadow: none; 
+  }
+
+  header .numero-productos {
+    position: absolute;
+    top: -5px;
+    right: -12px; 
+    width: 18px; 
+    height: 18px; 
+    background-color: red; 
+    color: white; 
+    border-radius: 50%; 
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 30px;
-    
+    font-size: 12px; 
+    font-weight: bold;
+    display: none;
+  }
+
+  header .carrito-url{
+    display: none;
+  }
+
+
+  // FOOTER
+  
+  footer {
+    background-color: #212529;
+    color: #FFFFFF; 
+    margin-top: auto;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); 
+  }
+
+  footer .copy{
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+
+  footer ul li a {
+    color: #FFFFFF; 
+    text-decoration: none;
+    margin-right: 15px;
+    font-size: 14px;
+  }
+  
+  footer ul li a:hover {
+    text-decoration: underline; 
+  }
+  
+  footer ul {
+    padding-left: 0;
+    list-style-type: none;
+  }
+
+
+
+
+  .alerta-superpuesta {
+    position: fixed;
+    bottom: 160;
+    left: 0;
+    right: 0;
+    z-index: 1050;
+    margin: 0; 
 }
 
-.register-cliente .login {
-    
-    border-radius: 5px;
-    padding: 20px;
-    background-color:whitesmoke;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    
+
+
+//MEDIA QUERIES
+
+@media (max-width: 768px) {
+  .content-cliente {
+      margin-top: 80px;
+  }
 }
-
-
-.font-grande{
-  font-size: 50px;
-  text-align: center;
-}
-
-header {
-  color: white; 
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+@media (max-width: 576px) {
+   
+  .carrito table th, .carrito table td,
+  .cliente-perfil table th, .cliente-perfil table td {
+      font-size: 0.875rem;
+  }
   
 }
+@media (max-width: 576px) {
 
-header .titulo-cliente {
-  font-size: 22px; 
-  font-weight: bold; 
-  color: #fff;
-  
+  .alerta-superpuesta {
+    bottom: 80;
+  }
 }
 
-header .navbar-brand:hover {
-  color: #f8f9fa; 
+.precio-descontado{
+
+  font-size: 18px;
+  color:#424242
 }
 
-header a.text-white {
-  color: #fff; 
-  text-decoration: none; 
+
+.precio-descontado-ficha{
+
+  font-size: 22px;
+  color:#424242
 }
 
-header a.text-white:hover {
-  color: #adb5bd; 
-}
 
-header .dropdown-menu {
-  background-color: #343a40; 
-  border: none; 
-}
-
-header .dropdown-item {
-  color: #fff; 
-}
-
-header .dropdown-item:hover {
-  background-color: #495057;
-  color: #fff;
-}
-
-header button.nav-link.dropdown-toggle {
-  color: #fff; 
-  background: none; 
-  border: none; 
-}
-
-header button.nav-link.dropdown-toggle:focus {
-  box-shadow: none; 
-}
-
-header .icono {
-  color: #fff; 
-}
-
-header .icono:hover, .icono:hover {
-  color: #adb5bd; 
-}
-
-footer p{
-
-  font-size: 16px;
-}
-
-    
 
 
 

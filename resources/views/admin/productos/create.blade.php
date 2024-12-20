@@ -1,4 +1,4 @@
-@extends('plantilla')
+@extends('plantillaAdmin')
 @section('titulo', 'Crear producto')
 @section('contenido')
     <div class="container mt-4">
@@ -39,7 +39,7 @@
                                     <option value="Parfum">Parfum</option>
                                 </select>
                             </div>
-                            
+
                             <div class="form-group mt-2">
                                 <label for="stock">Stock:</label>
                                 <input type="number" class="form-control" name="stock" id="stock" required>
@@ -53,8 +53,19 @@
                             </div>
 
                             <div class="form-group mt-2">
-                                <label for="precio">Precio:</label>
-                                <input type="number" step="0.01" class="form-control" name="precio" id="precio" required>
+                                <label for="precio_base">Precio base:</label>
+                                <input type="number" step="0.01" class="form-control" name="precio_base"
+                                    id="precio_base" required>
+                            </div>
+
+                            <div class="form-group mt-2">
+                                <label for="descuento">Descuento (%):</label>
+                                <select class="form-control" name="descuento" id="descuento" required>
+                                    <option value="0">Sin descuento</option>
+                                    <option value="5">5%</option>
+                                    <option value="10">10%</option>
+                                    <option value="20">20%</option>
+                                </select>
                             </div>
 
                             <div class="form-group mt-2">
@@ -67,7 +78,8 @@
                                 <input type="file" class="form-control-file" name="imagen" id="imagen" required>
                             </div>
                             <div class="text-end">
-                                <button type="submit" class="btn btn-dark btn-lg"><i class="fas fa-plus-circle me-2"></i> Añadir Producto</button>
+                                <button type="submit" class="btn btn-dark btn-lg"><i class="fas fa-plus-circle me-2"></i>
+                                    Añadir Producto</button>
                             </div>
                         </form>
                     </div>

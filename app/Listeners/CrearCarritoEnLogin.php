@@ -28,32 +28,41 @@ class CrearCarritoEnLogin
      * @return void
      */
     public function handle(Authenticated $event)
-    {
-        $user = $event->user;
-        $cookieName = 'carrito_temporal';
-        $carrito = Carrito::where('user_id', $user->id)->first();
+{
+    $user = $event->user;
+    $cookieName = 'carrito_temporal';
+    $carrito = Carrito::where('user_id', $user->id)->first();
 
     
-        if (!$carrito) {
-            
-            //Si no tiene carrito temporal creamos directamente un carrito, ya que no hay nada que recuperar temporal
-            if(!$this->request->hasCookie($cookieName)){
-                $carrito = new Carrito();
-                $carrito->user_id = $user->id;
-                $carrito->save();
-            }else{
-                //Si el usuario no tiene un carrito en la base de datos, pero tiene uno temporal
-                $carritoTemporal = json_decode($this->request->cookie($cookieName), true);
-                $carrito = new Carrito();
-                $carrito->user_id = $user->id;
-                $carrito->save();
-                foreach ($carritoTemporal as $productId => $details) {
-                    $carrito->productos()->attach($productId, ['amount' => $details['amount']]);
-                }
-
-                // Eliminamos la cookie temporal
-                Cookie::queue(Cookie::forget($cookieName));
-                }
-        }
+    if (!$carrito) {
+        $carrito = new Carrito();
+        $carrito->user_id = $user->id;
+        $carrito->save();
     }
+
+
+    if ($this->request->hasCookie($cookieName)) {
+        $carritoTemporal = json_decode($this->request->cookie($cookieName), true);
+
+      
+        foreach ($carritoTemporal as $productId => $details) {
+          
+            $existingProduct = $carrito->productos()->where('product_id', $productId)->first();
+
+            if ($existingProduct) {
+            
+                $carrito->productos()->updateExistingPivot($productId, [
+                    'amount' => $existingProduct->pivot->amount + $details['amount']
+                ]);
+            } else {
+               
+                $carrito->productos()->attach($productId, ['amount' => $details['amount']]);
+            }
+        }
+
+     
+        Cookie::queue(Cookie::forget($cookieName));
+    }
+}
+
 }

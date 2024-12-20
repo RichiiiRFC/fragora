@@ -17,10 +17,15 @@ class AuthoritationAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::check() && Auth::user()->rol === 'admin') {
+        if (!Auth::check()) {
+            return redirect()->route('admin-login')->with('error', 'Debe iniciar sesión como administrador.');
+        }
+    
+        if (Auth::user()->rol === 'admin') {
             return $next($request);
         }
-
+    
         return redirect()->route('admin-login')->with('error', 'Acceso no autorizado.');
     }
+    
 }

@@ -17,6 +17,8 @@ class CreateProductosTable extends Migration
             $table->string('categoria', 50);
             $table->integer('ml');
             $table->text('descripcion');
+            $table->decimal('descuento', 5, 2)->default(0);
+            $table->decimal('precio_base', 10, 2);
             $table->decimal('precio', 10, 2);
             $table->integer('stock');
             $table->string('imagen', 255)->nullable();

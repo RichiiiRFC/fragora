@@ -32,29 +32,32 @@
       <a class="nav-link" href="{{ route('admin.productos.index') }}">
         <i class="fas fa-box"></i> Productos
       </a>
-      <!--<ul class="submenu">
-        <li><a href="{{ route('admin.productos.index') }}"><i class="fas fa-list"></i> Lista de Productos</a></li>
-        <li><a href="{{ route('admin.productos.create') }}"><i class="fas fa-plus"></i> Añadir Producto</a></li>
-        
-      </ul>-->
     </li>
    
     <li class="nav-item">
       <a class="nav-link" href="{{ route('admin.usuarios.index') }}">
         <i class="fas fa-users"></i> Usuarios
       </a>
-      
     </li>
     <li class="nav-item">
       <a class="nav-link" href="{{ route('admin.pedidos.index') }}">
         <i class="fas fa-shopping-cart"></i> Pedidos
       </a>
-     
     </li>
 
+    <li class="nav-item">
+    
+    <a class="nav-link" href="#" id="menu-toggle">
+        <i class="fas fa-cog"></i> Parámetros
+    </a>
+    <ul class="submenu">
+      <li><a href="{{ route('admin.metodos_pago.index') }}"><i class="fas fa-credit-card"></i> Métodos de pago</a></li>
+      <li><a href="{{ route('admin.metodos_envio.index') }}"><i class="fas fa-truck"></i> Métodos de envío</a></li>
+    </ul>
+
+</li>
 
   </ul>
 </div>
-
 
 

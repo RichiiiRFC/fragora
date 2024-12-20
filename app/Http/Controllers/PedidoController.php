@@ -10,66 +10,48 @@ use App\Models\DetallePedido;
 
 class PedidoController extends Controller
 {
-   
-  public function index()
-{
-    $pedidos = Pedido::with('usuario')->get();
-    return view('admin.pedidos.index', compact('pedidos'));
-}
 
-    
-    public function create()
+    public function index()
     {
-        
+        $pedidos = Pedido::with('usuario')->get();
+        return view('admin.pedidos.index', compact('pedidos'));
     }
 
-  
-    public function store(Request $request)
+
+    public function create() {}
+
+
+    public function store(Request $request) {}
+
+
+    public function show(string $id) {}
+
+
+    public function edit(string $id)
     {
-        
+
+        $pedido = Pedido::with('usuario')->findOrFail($id);
+
+        $subtotal = $pedido->detalles->sum('subtotal');
+        $subtotal = number_format($subtotal, 2, '.');
+
+
+        return view('admin.pedidos.edit', compact('pedido', 'subtotal'));
     }
 
-   
-    public function show(string $id)
+
+
+
+
+    public function update(Request $request, string $id)
     {
-        
+
+        $pedido = Pedido::findOrFail($id);
+        $pedido->estado = $request->estado;
+        $pedido->save();
+        return redirect()->route('admin.pedidos.index', $pedido->id);
     }
 
-   
-   public function edit(string $id)
-{
-    
-    $pedido = Pedido::with('usuario')->findOrFail($id);
 
-    $subtotal = $pedido->detalles->sum('subtotal');
-    $subtotal = number_format($subtotal, 2, '.');
-
-    $precioEnvio = 5;
-    $precioEnvio = number_format($precioEnvio, 2, '.');
-
-
-    $tipoEnvio = 'Envio a domicilio';
-
-    
-    return view('admin.pedidos.edit', compact('pedido', 'subtotal', 'precioEnvio', 'tipoEnvio'));
-}
-
-
-
-
-    
-   public function update(Request $request, string $id)
-{
-    
-    $pedido = Pedido::findOrFail($id);
-    $pedido->estado = $request->estado;
-    $pedido->save();
-    return redirect()->route('admin.pedidos.edit', $pedido->id);
-}
-
-   
-    public function destroy(string $id)
-    {
-        
-    }
+    public function destroy(string $id) {}
 }

@@ -11,18 +11,18 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
-     public function direccion()
+    public function direccion()
     {
         return $this->hasOne(Direccion::class);
     }
 
-     public function pedidos()
+    public function pedidos()
     {
         return $this->hasMany(Pedido::class);
     }
 
-    
-   
+
+
     protected $fillable = [
         'name',
         'apellidos',
@@ -31,13 +31,13 @@ class User extends Authenticatable
         'password',
     ];
 
-   
+
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-  
+
     protected function casts(): array
     {
         return [

@@ -1,4 +1,4 @@
-@extends('plantilla')
+@extends('plantillaAdmin')
 @section('titulo', 'Usuarios')
 @section('contenido')
     <h1>Usuarios</h1>

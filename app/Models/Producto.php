@@ -13,6 +13,6 @@ class Producto extends Model
     protected function carritos()
     {
         return $this->belongsToMany(Carrito::class, 'articulos_carrito', 'product_id', 'cart_id')
-                    ->withPivot('amount');
+            ->withPivot('amount');
     }
 }

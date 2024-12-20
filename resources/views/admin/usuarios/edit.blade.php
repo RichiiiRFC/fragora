@@ -1,4 +1,4 @@
-@extends('plantilla')
+@extends('plantillaAdmin')
 @section('titulo', 'Modificar cliente')
 @section('contenido')
     <div class="container mt-4">
